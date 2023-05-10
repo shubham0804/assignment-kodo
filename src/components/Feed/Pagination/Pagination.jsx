@@ -9,7 +9,6 @@ const Pagination = ({ pageNo, setPageNo, totalNoOfPages }) => {
 
     const onPageChange = (pageNo) => {
         setPageNo(pageNo);
-        // window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     };
 
     return (

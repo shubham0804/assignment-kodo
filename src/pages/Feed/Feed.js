@@ -16,8 +16,14 @@ const Feed = ({ data }) => {
 
     useEffect(() => {
         const filteredData = handleDataChange({ pageNo, search, sort, setTotalNoOfPages, data });
+        setPageNo(1);
         setCurrentPageData(filteredData);
-    }, [search, sort, pageNo]);
+    }, [search, sort]);
+
+    useEffect(() => {
+        const filteredData = handleDataChange({ pageNo, search, sort, setTotalNoOfPages, data });
+        setCurrentPageData(filteredData);
+    }, [pageNo]);
 
     return (
         <div className={styles.container}>
