@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sortContainer {
+    display: flex;
+    align-items: center;
+}
+
+.sortDropdown {
+    margin-left: 8px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.input {
+    padding: 8px;
+    padding-right: 25px;
+    border-radius: 8px;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.searchContainer {
+    position: relative;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 5px;
+    top: 8px;
+    margin-right: 3px;
+}
+
+.sortText {
+    font-weight: 700;
+}

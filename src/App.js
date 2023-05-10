@@ -1,3 +1,4 @@
+import "./App.css";
 import Feed from "./pages/Feed/Feed";
 
 function App() {
