@@ -10,7 +10,8 @@ export const handleDataChange = ({ pageNo, search, sort, setTotalNoOfPages, data
     });
 
     // Set Total Pages
-    setTotalNoOfPages(searchData.length);
+    const entriesPerPage = 6;
+    setTotalNoOfPages(Math.ceil(searchData.length / entriesPerPage));
 
     // Sort
     searchData.sort((a, b) => {
@@ -23,10 +24,8 @@ export const handleDataChange = ({ pageNo, search, sort, setTotalNoOfPages, data
         return 0;
     });
     // Pagination
-    const entriesPerPage = 6;
     const firstEntryOfPage = (pageNo - 1) * entriesPerPage + 1;
     const lastEntryOfPage = firstEntryOfPage - 1 + entriesPerPage;
-    console.log({ firstEntryOfPage, lastEntryOfPage });
     const paginatedData = searchData.slice(firstEntryOfPage, lastEntryOfPage + 1);
     return paginatedData;
 };

@@ -1,0 +1,18 @@
+.table {
+    width: 100%;
+    border: 2px solid #d3d3d3 !important;
+    border-collapse: collapse;
+}
+
+.td {
+    border: 2px solid #d3d3d3 !important;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #eaeaea;
+}
+
+.container {
+    margin: 40px 0;
+}

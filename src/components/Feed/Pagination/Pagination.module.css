@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.previousBtn {
+    margin-right: 14px;
+    background-color: white;
+    border: none;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.disabled {
+    color: 'dddddd'
+}
+
+.pageNo {
+    border: none;
+    padding: 7px 14px;
+    margin: 0 7px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.currentPageNo {
+    color: white;
+    background-color: lightblue;
+}
+
+.next {
+    background-color: white;
+    border: 0;
+    margin-left: 14px;
+}
+

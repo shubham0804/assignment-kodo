@@ -5,6 +5,7 @@ import Grid from "../../components/Feed/Grid/Grid";
 import Table from "../../components/Feed/Table/Table";
 import styles from "./Feed.module.css";
 import { handleDataChange } from "../../services/feed";
+import Pagination from "../../components/Feed/Pagination/Pagination";
 
 const Feed = ({ data }) => {
     const [currentPageData, setCurrentPageData] = useState([]);
@@ -16,16 +17,15 @@ const Feed = ({ data }) => {
     useEffect(() => {
         const filteredData = handleDataChange({ pageNo, search, sort, setTotalNoOfPages, data });
         setCurrentPageData(filteredData);
-    }, [search, sort]);
+    }, [search, sort, pageNo]);
 
     return (
         <div className={styles.container}>
-            {/* <div className={styles.subContainer}> */}
             <h2>Feed</h2>
             <Filter setSearch={setSearch} setSort={setSort} />
             <Grid data={currentPageData} />
             <Table data={currentPageData} />
-            {/* </div> */}
+            <Pagination pageNo={pageNo} setPageNo={setPageNo} totalNoOfPages={totalNoOfPages} />
         </div>
     );
 };
