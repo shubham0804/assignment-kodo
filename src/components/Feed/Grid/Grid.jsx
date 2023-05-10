@@ -4,8 +4,8 @@ import GridItem from "./GridItem";
 const Grid = ({ data }) => {
     return (
         <div className={styles.gridContainer}>
-            {data.map((item) => {
-                return <GridItem item={item} />;
+            {data.map((item, i) => {
+                return <GridItem key={i} item={item} />;
             })}
         </div>
     );
