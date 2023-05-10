@@ -1,0 +1,52 @@
+.gridContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px;
+}
+
+.gridItemContainer {
+    border: 1px solid #d3d3d3;
+    flex: 1;
+}
+
+.image {
+    width: 100%;
+}
+
+.itemName {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.itemDescription {
+    word-wrap: break-word;
+    width: min-content;
+    min-width: 100%;
+    margin-top: 12px;
+}
+
+.imageDescriptionContainer {
+    padding: 10px
+}
+
+
+
+@media (min-width: 600px) {
+    .gridContainer {
+        flex-direction: row;
+    }
+    .image {
+        max-width: 40vw;
+        width: max-content;
+    }
+}
+
+@media (min-width: 992px) {
+    .image {
+        /* width: max-content; */
+        min-width: 10vw;
+        max-width: 22vw;
+    }
+}
