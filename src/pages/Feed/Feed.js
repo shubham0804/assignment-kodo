@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import Filter from "../../components/Feed/Filters/Filters";
 import Grid from "../../components/Feed/Grid/Grid";
@@ -6,6 +7,7 @@ import Table from "../../components/Feed/Table/Table";
 import styles from "./Feed.module.css";
 import { handleDataChange } from "../../services/feed";
 import Pagination from "../../components/Feed/Pagination/Pagination";
+import { updateParams } from "../../services/queryParams";
 
 const Feed = ({ data }) => {
     const [currentPageData, setCurrentPageData] = useState([]);
@@ -13,17 +15,25 @@ const Feed = ({ data }) => {
     const [search, setSearch] = useState("");
     const [sort, setSort] = useState("name");
     const [totalNoOfPages, setTotalNoOfPages] = useState(data.length);
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {}, []);
 
     useEffect(() => {
-        const filteredData = handleDataChange({ pageNo, search, sort, setTotalNoOfPages, data });
+        updateParams({ setSearchParams, searchParams, search, sort, pageNo });
+        const filteredData = handleDataChange({
+            pageNo,
+            search,
+            sort,
+            setTotalNoOfPages,
+            data,
+        });
+        setCurrentPageData(filteredData);
+    }, [search, sort, pageNo]);
+
+    useEffect(() => {
         setPageNo(1);
-        setCurrentPageData(filteredData);
     }, [search, sort]);
-
-    useEffect(() => {
-        const filteredData = handleDataChange({ pageNo, search, sort, setTotalNoOfPages, data });
-        setCurrentPageData(filteredData);
-    }, [pageNo]);
 
     return (
         <div className={styles.container}>
