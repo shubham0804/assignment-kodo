@@ -18,14 +18,14 @@ export const updateStateWithParams = ({ searchParams, setPageNo, setSearch, setS
     searchParams?.forEach((value, key) => {
         switch (key) {
             case "pageNo":
-                console.log("setting page no");
                 setPageNo(parseInt(value));
+                break;
             case "search":
-                console.log("setting search");
                 setSearch(value);
+                break;
             case "sort":
-                console.log("setting sort");
                 setSort(value);
+                break;
         }
     });
 };

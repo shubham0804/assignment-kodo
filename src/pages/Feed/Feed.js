@@ -7,7 +7,7 @@ import Table from "../../components/Feed/Table/Table";
 import styles from "./Feed.module.css";
 import { handleDataChange } from "../../services/feed";
 import Pagination from "../../components/Feed/Pagination/Pagination";
-import { updateParams } from "../../services/queryParams";
+import { updateStateWithParams, updateParams } from "../../services/queryParams";
 
 const Feed = ({ data }) => {
     const [currentPageData, setCurrentPageData] = useState([]);
@@ -16,10 +16,17 @@ const Feed = ({ data }) => {
     const [sort, setSort] = useState("name");
     const [totalNoOfPages, setTotalNoOfPages] = useState(data.length);
     const [searchParams, setSearchParams] = useSearchParams();
-
-    useEffect(() => {}, []);
+    const [queryParamsStateUpdated, setQueryParamsStateUpdated] = useState(false);
 
     useEffect(() => {
+        updateStateWithParams({ searchParams, setPageNo, setSearch, setSort });
+        setQueryParamsStateUpdated(true);
+    }, []);
+
+    useEffect(() => {
+        if (!queryParamsStateUpdated) {
+            return;
+        }
         updateParams({ setSearchParams, searchParams, search, sort, pageNo });
         const filteredData = handleDataChange({
             pageNo,
@@ -29,16 +36,20 @@ const Feed = ({ data }) => {
             data,
         });
         setCurrentPageData(filteredData);
-    }, [search, sort, pageNo]);
+    }, [search, sort, pageNo, queryParamsStateUpdated]);
 
-    useEffect(() => {
-        setPageNo(1);
-    }, [search, sort]);
+    // useEffect(() => {
+    //     if (!queryParamsStateUpdated) {
+    //         return;
+    //     }
+    //     console.log("setting page no to 1");
+    //     setPageNo(1);
+    // }, [search, sort]);
 
     return (
         <div className={styles.container}>
             <h2>Feed</h2>
-            <Filter setSearch={setSearch} setSort={setSort} />
+            <Filter search={search} sort={sort} setSearch={setSearch} setSort={setSort} />
             <Grid data={currentPageData} />
             <Table data={currentPageData} />
             <Pagination pageNo={pageNo} setPageNo={setPageNo} totalNoOfPages={totalNoOfPages} />

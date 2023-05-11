@@ -1,7 +1,7 @@
 import styles from "./Filters.module.css";
 import Search from "../../../icons/search";
 
-const Filter = ({ setSearch, setSort }) => {
+const Filter = ({ search, sort, setSearch, setSort }) => {
     const onSearch = ({ target }) => {
         setSearch(target.value);
     };
@@ -15,6 +15,7 @@ const Filter = ({ setSearch, setSort }) => {
             <div className={styles.searchContainer}>
                 <input
                     onChange={onSearch}
+                    value={search}
                     placeholder="Search..."
                     className={styles.input}
                     type="text"
@@ -23,7 +24,13 @@ const Filter = ({ setSearch, setSort }) => {
             </div>
             <div className={styles.sortContainer}>
                 <p className={styles.sortText}>Sort by</p>
-                <select onChange={onSort} className={styles.sortDropdown} name="sort" id="sort">
+                <select
+                    value={sort}
+                    onChange={onSort}
+                    className={styles.sortDropdown}
+                    name="sort"
+                    id="sort"
+                >
                     <option value="name">Name</option>
                     <option value="dateLastEdited">Last Edited</option>
                 </select>
