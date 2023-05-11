@@ -1,13 +1,15 @@
 import styles from "./Filters.module.css";
 import Search from "../../../icons/search";
 
-const Filter = ({ search, sort, setSearch, setSort }) => {
+const Filter = ({ search, sort, setSearch, setSort, setPageNo }) => {
     const onSearch = ({ target }) => {
         setSearch(target.value);
+        setPageNo(1);
     };
 
     const onSort = ({ target }) => {
         setSort(target.value);
+        setPageNo(1);
     };
 
     return (

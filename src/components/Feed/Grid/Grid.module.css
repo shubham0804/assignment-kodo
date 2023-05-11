@@ -8,7 +8,6 @@
 
 .gridItemContainer {
     border: 1px solid #d3d3d3;
-    flex: 1;
 }
 
 .image {
@@ -45,8 +44,7 @@
 
 @media (min-width: 992px) {
     .image {
-        /* width: max-content; */
-        min-width: 10vw;
         max-width: 22vw;
+        width: max-content;
     }
 }

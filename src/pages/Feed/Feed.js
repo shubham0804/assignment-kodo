@@ -38,18 +38,16 @@ const Feed = ({ data }) => {
         setCurrentPageData(filteredData);
     }, [search, sort, pageNo, queryParamsStateUpdated]);
 
-    // useEffect(() => {
-    //     if (!queryParamsStateUpdated) {
-    //         return;
-    //     }
-    //     console.log("setting page no to 1");
-    //     setPageNo(1);
-    // }, [search, sort]);
-
     return (
         <div className={styles.container}>
             <h2>Feed</h2>
-            <Filter search={search} sort={sort} setSearch={setSearch} setSort={setSort} />
+            <Filter
+                search={search}
+                sort={sort}
+                setSearch={setSearch}
+                setSort={setSort}
+                setPageNo={setPageNo}
+            />
             <Grid data={currentPageData} />
             <Table data={currentPageData} />
             <Pagination pageNo={pageNo} setPageNo={setPageNo} totalNoOfPages={totalNoOfPages} />
