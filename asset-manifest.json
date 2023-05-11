@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/assignment-kodo/static/css/main.e19c00cb.css",
+    "main.js": "/assignment-kodo/static/js/main.2f59c863.js",
+    "index.html": "/assignment-kodo/index.html",
+    "main.e19c00cb.css.map": "/assignment-kodo/static/css/main.e19c00cb.css.map",
+    "main.2f59c863.js.map": "/assignment-kodo/static/js/main.2f59c863.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e19c00cb.css",
+    "static/js/main.2f59c863.js"
+  ]
+}
